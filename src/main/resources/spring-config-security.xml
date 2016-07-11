@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<sec:global-method-security secured-annotations="enabled"
+	                            access-decision-manager-ref="myAccessDecisionManager"/>
+
+	<sec:http auto-config="true" access-decision-manager-ref="myAccessDecisionManager">
+		<sec:csrf disabled="true"/>
+		<sec:form-login login-processing-url="/login"
+		                login-page="/login" default-target-url="/"
+		                authentication-success-handler-ref="authSuccessHandler"
+		                authentication-failure-handler-ref="authenticationFailureHandler"/>
+		<sec:logout success-handler-ref="logoutSuccessHandler"
+		            invalidate-session="true"/>
+
+		<sec:session-management session-authentication-strategy-ref="sessionAuthenticationStrategy"/>
+
+		<sec:custom-filter ref="concurrentSessionFilter" position="CONCURRENT_SESSION_FILTER"/>
+
+		<!--<sec:intercept-url pattern="/login" requires-channel="https"/>-->
+		<!--<sec:intercept-url pattern="/submitSignup" requires-channel="https"/>-->
+
+		<!--<sec:intercept-url pattern="/" requires-channel="http"/>-->
+		<!--<sec:intercept-url pattern="/thread/**" requires-channel="http"/>-->
+		<!--<sec:intercept-url pattern="/forum/**" requires-channel="http"/>-->
+	</sec:http>
+
+	<sec:authentication-manager>
+		<sec:authentication-provider user-service-ref="userDetailsService">
+			<sec:password-encoder ref="passwordEncoder"/>
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+	<bean id="myAccessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+		<constructor-arg name="decisionVoters">
+			<list>
+				<bean class="org.springframework.security.access.vote.RoleVoter">
+					<property name="rolePrefix" value=""/>
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="authSuccessHandler" class="sforum.security.AuthenticationSuccessHandler"/>
+
+	<bean id="authenticationFailureHandler" class="sforum.security.AuthenticationFailureHandler"/>
+
+	<bean id="logoutSuccessHandler" class="sforum.security.LogoutSuccessHandler"/>
+
+	<bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"/>
+
+	<bean id="sessionAuthenticationStrategy"
+	      class="org.springframework.security.web.authentication.session.CompositeSessionAuthenticationStrategy">
+		<constructor-arg name="delegateStrategies">
+			<list>
+				<bean class="org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy">
+					<constructor-arg name="sessionRegistry" ref="sessionRegistry"/>
+					<property name="exceptionIfMaximumExceeded" value="false"/>
+					<property name="maximumSessions" value="1"/>
+				</bean>
+				<bean class="org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy">
+					<constructor-arg name="sessionRegistry" ref="sessionRegistry"/>
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="concurrentSessionFilter" class="org.springframework.security.web.session.ConcurrentSessionFilter">
+		<constructor-arg name="sessionRegistry" ref="sessionRegistry"/>
+		<constructor-arg name="expiredUrl" value="/"/>
+	</bean>
+
+</beans>

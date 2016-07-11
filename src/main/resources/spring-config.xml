@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	                       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	                       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+	                       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	                       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<context:component-scan base-package="sforum.beans"/>
+	<context:component-scan base-package="sforum.security"/>
+	<context:component-scan base-package="sforum.service"/>
+	<context:component-scan base-package="sforum.web.dto.mapper"/>
+	<jpa:repositories base-package="sforum.repository"/>
+	<tx:annotation-driven />
+
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="packagesToScan" value="sforum.model"/>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.enable_lazy_load_no_trans">false</prop>
+				<prop key="hibernate.connection.characterEncoding">UTF-8</prop>
+				<prop key="hibernate.connection.useUnicode">yes</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<!--<prop key="hibernate.cache.use_second_level_cache">true</prop>-->
+				<!--<prop key="hibernate.cache.use_query_cache">true</prop>-->
+				<!--<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>-->
+			</props>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/forum_db?useUnicode=yes&amp;characterEncoding=utf8"/>
+		<property name="username" value="root"/>
+		<property name="password" value=""/>
+		<property name="connectionProperties" value="serverTimezone=Europe/Paris"/>
+	</bean>
+
+	<!--<bean id="dataSource" class="com.mysql.cj.jdbc.MysqlConnectionPoolDataSource">-->
+		<!--<property name="databaseName" value="forum_db"/>-->
+		<!--<property name="user" value="root"/>-->
+		<!--<property name="password" value=""/>-->
+		<!--<property name="portNumber" value="3306"/>-->
+		<!--<property name="serverName" value="localhost"/>-->
+	<!--</bean>-->
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+	</bean>
+
+
+
+	<!--
+		Application specific beans
+	-->
+
+	<bean id="app" class="sforum.beans.Application">
+
+	</bean>
+
+	<bean id="session" class="sforum.beans.SessionData" scope="session">
+		<aop:scoped-proxy/>
+	</bean>
+
+</beans>

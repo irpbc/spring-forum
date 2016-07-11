@@ -1,0 +1,368 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/**********************************************/
+
+.clearfix {
+	clear: both;
+}
+
+h3 {
+	font-family: "Helvetica", sans-serif;
+	font-size: 16pt;
+}
+
+p {
+	font-family: "Helvetica", sans-serif;
+	font-size: 11pt;
+	margin: 15px 0 15px 0;
+}
+
+html {
+	/*background-color: #dddddd;*/
+}
+
+body {
+    background-color: #f4f9f6;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Liberation Sans", sans-serif;
+}
+
+.page-header {
+	text-align: center;
+	background: #8a98ff;
+	padding: 20px;
+	color: white;
+}
+
+label {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+input[type=text] {
+    margin-right: 10px;
+}
+
+.footer {
+	padding: 12px;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 32pt;
+	float: left;
+}
+
+.logo, .title-text {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.subtitle {
+	float: right;
+	font-size: 14pt;
+	margin-top: 25px
+}
+
+.float-shelf {
+	clear: both;
+}
+
+.main-nav {
+    border-bottom: 1px solid gray;
+}
+
+.main-nav > a {
+	padding: 10px;
+	text-decoration: none;
+	color: black;
+}
+
+.main-nav > a:hover {
+	background-color: teal;
+	color: white;
+}
+
+.menu {
+	font-size: 12pt;
+	cursor: default;
+	position: relative;
+}
+
+.menu-title {
+	padding: 10px;
+}
+
+.menu-body {
+	position: absolute;
+	top: 100%;
+	background-color: teal;
+	min-width: 100%;
+	display: none;
+	white-space: nowrap;
+	z-index: 15;
+}
+
+.login-box {
+	padding: 10px;
+}
+
+.menu-title:hover {
+	background-color: teal;
+	color: white;
+}
+
+.menu.active .menu-title {
+	background-color: teal;
+}
+
+.menu.active .menu-body {
+	display: block;
+}
+
+.menu.right .menu-body {
+	right: 0;
+}
+
+.menu-body {
+	color: white;
+}
+
+.menu-body li {
+	padding: 10px;
+	display: block;
+}
+
+.menu-body li:hover {
+	background-color: #96d7ff;
+}
+
+.left {
+	float: left;
+	position: relative;
+}
+
+.right {
+	float: right;
+	position: relative;
+}
+
+#main {
+}
+
+.forum-top-level {
+
+}
+
+.forum-top-level.first {
+	margin-top: 0;
+}
+
+.forum-header {
+	background-color: gainsboro;
+}
+
+.forum-name {
+	padding: 12px;
+}
+
+.forum-list {
+	background-color: #96d7ff;
+}
+
+div.sub-forum {
+
+}
+
+div.sub-forum-name {
+	padding: 12px;
+}
+
+div.sub-forum-name > a {
+	text-decoration: none;
+	color: #000083;
+}
+
+div.sub-forum-name > a:hover {
+	text-decoration: underline;
+}
+
+div.sub-forum-name > a:visited {
+	color: #000083;
+}
+
+.sub-forum:hover {
+	background-color: #73b9ff;
+}
+
+.topic {
+	margin: 6px;
+	padding: 6px;
+	background-color: #96d7ff;
+}
+
+.locked {
+	background-color: #c1c798;
+}
+
+.deleted {
+	background-color: #ffd3d5;
+}
+
+.post-table {
+	background-color: aliceblue;
+	border: 2px solid #8a98ff;
+	border-bottom: none;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.post-header {
+	border-bottom: 2px solid #8a98ff;
+	font-size: 9pt;
+}
+
+.post-date {
+	padding: 3px;
+	text-align: left;
+	border-right: 2px solid #8a98ff;
+}
+
+.post-link {
+	text-align: right;
+	padding: 3px;
+}
+
+.post-user {
+	padding: 12px;
+	width: 20%;
+	border-right: 2px solid #8a98ff;
+	border-bottom: 2px solid #8a98ff;
+}
+
+.post-user-info {
+	margin-top: 12px;
+}
+
+.post-user-info>p {
+	font-size: 9pt;
+	margin: 0;
+}
+
+.post-text {
+	min-height: 100px;
+	padding: 12px;
+}
+
+.post-body {
+	width: 80%;
+	border-bottom: 2px solid #8a98ff;
+}
+
+.post-tools {
+	bottom: 100%;
+}
+
+.post-input {
+	width: 100%;
+	height: 400px;
+}
+
+.users-table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.users-table th {
+	border: 1px solid gray;
+	padding: 5px;
+}
+
+.users-table td {
+	border: 1px solid gray;
+	padding: 5px;
+}
+
+a.icon {
+	display: inline-block;
+	height: 100%;
+}
+
+a.icon:hover {
+	background-color: black;
+}
+
+img.icon {
+	padding: 8px;
+	height: 100%;
+}
+
+.commands {
+	height: 40px;
+}
+
+.paging {
+	padding: 6px;
+	width: 100%;
+	text-align: right;
+}
+
+.admin-section {
+
+	font-size: 12pt;
+	padding: 6px;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
