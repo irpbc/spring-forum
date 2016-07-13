@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>sforum</OriginalElement>
+  <nodes>
+    <node x="528.8130175559969" y="430.3990393497136">sforum.service.TopicService</node>
+    <node x="1191.0412537209909" y="753.1027156844633">sforum.repository.UserRepository</node>
+    <node x="2.9865222868809838" y="4.2457047847774305">sforum.web.controller.ForumController</node>
+    <node x="1244.594058209681" y="1054.4655459079988">sforum.repository.PermissionRepository</node>
+    <node x="608.0055675390726" y="1323.8012192869016">sforum.service.UserService</node>
+    <node x="-107.59929798632919" y="852.0098437783332">sforum.web.controller.AdminOperations</node>
+    <node x="1096.1138617433553" y="-116.49990762978015">sforum.repository.ForumRepository</node>
+    <node x="1246.0994156824315" y="1241.0702013670796">sforum.repository.RoleRepository</node>
+    <node x="1136.5161901143542" y="215.26898208017735">sforum.repository.PostRepository</node>
+    <node x="509.1750415665989" y="76.31239608350263">sforum.service.ForumService</node>
+    <node x="-6.176888970995748" y="172.60299279512282">sforum.web.controller.ForumOperations</node>
+    <node x="-52.81190890652053" y="1219.5738038056534">sforum.web.controller.LoginController</node>
+    <node x="-39.05968798796914" y="386.80479451527026">sforum.web.controller.TopicOperations</node>
+    <node x="1130.9135898926659" y="410.0144097542952">sforum.repository.TopicRepository</node>
+    <node x="632.0526763511924" y="906.9187142065398">sforum.service.RoleService</node>
+    <node x="501.8375922419275" y="664.1570293737299">sforum.service.PostService</node>
+    <node x="-87.5535756463255" y="653.017612323247">sforum.web.controller.PostOperations</node>
+    <node x="2.6267572675048996" y="1449.6063181230372">sforum.web.controller.UsersController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sforum.service.RoleService" target="sforum.repository.PermissionRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.TopicService" target="sforum.repository.ForumRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.TopicService" target="sforum.service.ForumService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.PostOperations" target="sforum.repository.UserRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.AdminOperations" target="sforum.repository.UserRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.TopicService" target="sforum.repository.UserRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.TopicOperations" target="sforum.repository.TopicRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.AdminOperations" target="sforum.repository.ForumRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.UsersController" target="sforum.service.UserService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.PostOperations" target="sforum.repository.ForumRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.AdminOperations" target="sforum.repository.TopicRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.PostService" target="sforum.service.UserService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.PostOperations" target="sforum.repository.TopicRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.TopicService" target="sforum.repository.TopicRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.UsersController" target="sforum.repository.RoleRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.AdminOperations" target="sforum.service.UserService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.PostOperations" target="sforum.repository.PostRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.PostService" target="sforum.repository.UserRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.PostOperations" target="sforum.service.PostService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.TopicOperations" target="sforum.repository.PostRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.ForumController" target="sforum.service.ForumService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.TopicOperations" target="sforum.repository.ForumRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.ForumController" target="sforum.repository.UserRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.AdminOperations" target="sforum.repository.RoleRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.RoleService" target="sforum.repository.RoleRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.TopicService" target="sforum.service.PostService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.ForumController" target="sforum.repository.ForumRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.PostService" target="sforum.repository.TopicRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.ForumOperations" target="sforum.repository.ForumRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.PostService" target="sforum.repository.PostRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.AdminOperations" target="sforum.service.RoleService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.LoginController" target="sforum.repository.UserRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.TopicOperations" target="sforum.service.ForumService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.ForumController" target="sforum.repository.TopicRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.AdminOperations" target="sforum.repository.PermissionRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.UserService" target="sforum.repository.UserRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.ForumController" target="sforum.repository.PostRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.TopicOperations" target="sforum.service.TopicService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.service.ForumService" target="sforum.repository.ForumRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="sforum.web.controller.TopicOperations" target="sforum.repository.UserRepository">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5948223961468995" x="813.5" y="703.5" />
+  <SelectedNodes>
+    <node>sforum.web.controller.ForumController</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
